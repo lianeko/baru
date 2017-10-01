@@ -221,12 +221,12 @@ class LINE extends LineAPI {
             }
         }
 
-        if(txt == 'set') 
+        if(txt == 'setlastpoint') 
 	 if(isAdminOrBot(seq.from_)){
             this._sendMessage(seq, `SetPoint Untuk Cek Jomblo.`);
             this.removeReaderByGroup(seq.to);
         }
-	if(txt == 'tag all'){
+	if(txt == 'tagall'){
                     let { listMember } = await this.searchGroup(seq.to);
                     const mentions = await this.mention(listMember);
                     seq.contentMetadata = mentions.cmddata;
@@ -241,7 +241,7 @@ class LINE extends LineAPI {
 	 if(isAdminOrBot(seq.from_)){
             this.leaveGroup;
 	}
-        if(txt == 'cek')
+        if(txt == 'viewlastseen')
 	 if(isAdminOrBot(seq.from_)){
             let rec = await this.recheck(this.checkReader,seq.to);
             const mentions = await this.mention(rec);
